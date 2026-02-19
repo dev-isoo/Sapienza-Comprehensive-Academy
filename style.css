@@ -26,7 +26,7 @@ body {
 /* ==============================
    NAVBAR
 ============================== */
-.navbar {
+ .navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -36,8 +36,10 @@ body {
   z-index: 1000;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;  /* changed from center */
   align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;           /* so padding doesn't cause overflow */
 }
 
 .navbar ul {
@@ -229,14 +231,54 @@ h1 {
   }
 }
  .logo {
-   position: absolute;
-   left: 20px;
-   display: flex;
-   align-items: center;
- }
+  position: static;                 /* remove absolute positioning */
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
- .logo img {
-   height: 70px;
-   width: auto;
-   object-fit: contain;
- }
+ 
+.logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+.navbar-spacer {
+  width: 80px;   /* roughly match logo width */
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+    padding: 0 10px;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .navbar ul {
+    gap: 25px;
+    font-size: 16px;
+  }
+
+  .navbar-spacer {
+    width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar ul {
+    gap:18px;
+    font-size: 14px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .navbar-spacer {
+    width: 40px;
+  }
+}
