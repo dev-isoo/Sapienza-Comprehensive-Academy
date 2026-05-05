@@ -106,10 +106,8 @@
 
 </section>
 
-<!-- EMAILJS -->
- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script>
+<!-- EMAILJS --> 
+ <script>
 document.addEventListener("DOMContentLoaded", () => {
 
   emailjs.init("mRBKrsFIZ4o2eTbZL");
@@ -124,8 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
     emailjs.send("service_z7csu9o", "template_er663ur", {
       from_name: document.getElementById("name").value,
       from_email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value || "Not provided",
-      program: document.getElementById("program").value || "Not specified",
       message: document.getElementById("message").value
     })
     .then(() => {
