@@ -1,188 +1,425 @@
- /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-/* SPACE FOR FIXED NAVBAR */
-body {
-  padding-top: 80px;
-}
-
-/* FULL PAGE BLURRED BACKGROUND */
-.blur-bg {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(
-      white,   /* very light coral */
-     #464be8 ,   /* soft coral */
-    #ffffff    /* fade to white */
-  );
-  filter: blur(18px);
-  transform: scale(1.1);
-  z-index: -1;
-}
-
-/* NAVBAR */
- .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90px;
-  background-color: #464be8;
-  z-index: 1000;
-
-  display: flex;
-  justify-content: space-between;  /* changed from center */
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;           /* so padding doesn't cause overflow */
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 55px;
-  margin: 0;
-  padding: 0;
-  font-size: 24px;
-}
-
-.navbar ul li a {
-  color: black;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.navbar a:hover {
-  color: aqua;
-}
-@media (max-width: 768px) {
-  section {
-    scroll-margin-top: 110px; /* navbar is taller on mobile */
-  }
-}
-
-/* PAGE TITLE */
- .page-title {
-  position: sticky;          /* FIXED ISSUE */
-  top: 100px;                /* sits below navbar */
-  margin: 0 auto 40px;
-  width: fit-content;
-
-  background-color: #fff;
-  color: #464be8;
-  padding: 15px 35px;
-  border-radius: 50px;
-  font-size: 28px;
-  font-weight: bold;
+ 
+/* =========================
+   HERO
+========================= */
+.contact-hero {
   text-align: center;
-
-  z-index: 10;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 140px 20px 60px;
+  color: white;
 }
 
-/* CONTACT SECTION */
-.contact-section {
-  padding: 100px 20px 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.contact-hero h1 {
+  font-size: 3rem;
+  font-family: "Playfair Display", serif;
 }
 
+.contact-hero h1 span {
+  color: #8b5cf6;
+}
+
+.contact-hero p {
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
+/* =========================
+   GRID
+========================= */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 40px 80px;
+}
+
+/* =========================
+   CARD (DARK MODE DEFAULT)
+========================= */
 .contact-card {
-  background-color: rgba(255, 255, 255, 0.95); /* slight transparency */
-  padding: 35px 25px;
-  border-radius: 15px;
-  width: 350px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  padding: 30px;
   text-align: center;
-  transition: transform 0.3s ease;
+  color: white;
+
+  backdrop-filter: blur(12px);
+  transition: 0.4s ease;
+  cursor: pointer;
 }
 
 .contact-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px) scale(1.03);
+  border-color: #8b5cf6;
+  box-shadow: 0 20px 50px rgba(139,92,246,0.25);
 }
 
-.contact-card h2 {
-  color: #464be8;
+.contact-card i {
+  font-size: 35px;
+  color: #8b5cf6;
   margin-bottom: 15px;
+  transition: 0.4s;
 }
 
-.contact-card p {
-  color: #333;
-  font-size: 16px;
+.contact-card:hover i {
+  transform: rotate(12deg) scale(1.2);
+}
+
+.contact-card h3 {
   margin-bottom: 10px;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-  .page-title {
-    font-size: 22px;
-    padding: 16px;
+.contact-card p {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* =========================
+   CTA
+========================= */
+.contact-cta {
+  text-align: center;
+  padding: 80px 20px;
+  color: white;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: #8b5cf6;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+  background: #6d28d9;
+}
+
+/* =========================
+   THEME BUTTON
+========================= */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  background: rgba(139,92,246,0.2);
+  transform: scale(1.1);
+}
+
+/* =========================
+   🌞 LIGHT MODE FIX (NEW)
+========================= */
+body.light-mode {
+  background: #f5f7ff;
+  color: #1a1a1a;
+}
+
+/* HERO LIGHT */
+body.light-mode .contact-hero {
+  color: #1a1a1a;
+}
+
+/* CARD LIGHT */
+body.light-mode .contact-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  color: #1a1a1a;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ICON LIGHT */
+body.light-mode .contact-card i {
+  color: #464be8;
+}
+
+/* CTA LIGHT */
+body.light-mode .contact-cta {
+  color: #1a1a1a;
+}
+
+/* BUTTON LIGHT */
+body.light-mode .cta-btn {
+  background: #464be8;
+  color: white;
+}
+
+body.light-mode .cta-btn:hover {
+  background: #2f35c9;
+}
+
+/* THEME BUTTON LIGHT */
+body.light-mode .theme-toggle {
+  border: 1px solid rgba(0,0,0,0.15);
+  color: #1a1a1a;
+}
+
+body.light-mode .theme-toggle:hover {
+  background: rgba(70,75,232,0.1);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    padding: 40px 20px;
   }
 
-  .contact-card {
-    width: 90%;
-    padding: 25px;
-  }
-
-  .navbar ul {
-    gap: 25px;
-    font-size: 18px;
+  .contact-hero h1 {
+    font-size: 2.2rem;
   }
 }
-  .logo {
-  position: static;                 /* remove absolute positioning */
+.apply-form {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.apply-form form {
+  max-width: 500px;
+  margin: auto;
   display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.apply-form input,
+.apply-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.apply-form button {
+  padding: 12px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.apply-form button:hover {
+  opacity: 0.8;
+}
+/* ============================================================
+   SAPIENZA — Apply Form Section
+   Matches dark-mode / light-mode from style.css
+============================================================ */
+
+/* ── SECTION WRAPPER ───────────────────────────────────────── */
+.apply-form {
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
- 
-.logo img {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
-}
-.navbar-spacer {
-  width: 80px;   /* roughly match logo width */
-  flex-shrink: 0;
+/* Subtle top border accent */
+.apply-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #464be8, #8b5cf6);
 }
 
- @media (max-width: 768px) {
-  section {
-    scroll-margin-top: 110px;
-  }
-  .navbar {
-    height: 70px;
-    padding: 0 10px;
-  }
-  .logo img {
-    height: 50px;
-  }
-  .navbar ul {
-    gap: 25px;
-    font-size: 16px;
-  }
-  .navbar-spacer {
-    width: 50px;
-  }
+/* ── HEADINGS ──────────────────────────────────────────────── */
+.apply-form h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 10px;
+  background: linear-gradient(135deg, #464be8, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-@media (max-width: 480px) {
-  .navbar ul {
-    gap:18px;
-    font-size: 14px;
+
+.apply-form > p {
+  font-size: 1rem;
+  text-align: center;
+  margin: 0 0 40px;
+  opacity: 0.7;
+}
+
+/* ── FORM CARD ─────────────────────────────────────────────── */
+#contactForm {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  position: relative;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+/* ── DARK MODE FORM ────────────────────────────────────────── */
+.dark-mode .apply-form > p {
+  color: #a0a0b8;
+}
+
+.dark-mode #contactForm {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(70, 75, 232, 0.2);
+  box-shadow: 0 8px 40px rgba(70, 75, 232, 0.08);
+}
+
+.dark-mode #contactForm:hover {
+  border-color: rgba(70, 75, 232, 0.4);
+  box-shadow: 0 12px 50px rgba(70, 75, 232, 0.14);
+}
+
+/* ── LIGHT MODE FORM ───────────────────────────────────────── */
+.light-mode .apply-form > p {
+  color: #555577;
+}
+
+.light-mode #contactForm {
+  background: #ffffff;
+  border-color: rgba(70, 75, 232, 0.15);
+  box-shadow: 0 8px 40px rgba(70, 75, 232, 0.07);
+}
+
+.light-mode #contactForm:hover {
+  border-color: rgba(70, 75, 232, 0.3);
+  box-shadow: 0 12px 50px rgba(70, 75, 232, 0.12);
+}
+
+/* ── INPUTS & TEXTAREA ─────────────────────────────────────── */
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+#contactForm textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Dark mode inputs */
+.dark-mode #contactForm input,
+.dark-mode #contactForm textarea {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e8e8f0;
+}
+
+.dark-mode #contactForm input::placeholder,
+.dark-mode #contactForm textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.dark-mode #contactForm input:focus,
+.dark-mode #contactForm textarea:focus {
+  background: rgba(70, 75, 232, 0.08);
+  border-color: rgba(70, 75, 232, 0.6);
+  box-shadow: 0 0 0 3px rgba(70, 75, 232, 0.15);
+}
+
+/* Light mode inputs */
+.light-mode #contactForm input,
+.light-mode #contactForm textarea {
+  background: #f5f5fb;
+  border-color: rgba(70, 75, 232, 0.15);
+  color: #1a1a2e;
+}
+
+.light-mode #contactForm input::placeholder,
+.light-mode #contactForm textarea::placeholder {
+  color: #9090aa;
+}
+
+.light-mode #contactForm input:focus,
+.light-mode #contactForm textarea:focus {
+  background: #ffffff;
+  border-color: rgba(70, 75, 232, 0.55);
+  box-shadow: 0 0 0 3px rgba(70, 75, 232, 0.1);
+}
+
+/* ── SUBMIT BUTTON ─────────────────────────────────────────── */
+#contactForm button[type="submit"] {
+  width: 100%;
+  padding: 15px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  background: linear-gradient(135deg, #464be8 0%, #8b5cf6 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(70, 75, 232, 0.35);
+  margin-top: 6px;
+}
+
+#contactForm button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(70, 75, 232, 0.45);
+  opacity: 0.95;
+}
+
+#contactForm button[type="submit"]:active {
+  transform: translateY(0px);
+  box-shadow: 0 3px 12px rgba(70, 75, 232, 0.3);
+}
+
+/* Shimmer effect on button */
+#contactForm button[type="submit"]::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+#contactForm button[type="submit"]:hover::after {
+  left: 160%;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  #contactForm {
+    padding: 28px 20px;
+    border-radius: 16px;
   }
 
-  .logo img {
-    height: 40px;
-  }
-
-  .navbar-spacer {
-    width: 40px;
+  .apply-form {
+    padding: 60px 16px;
   }
 }

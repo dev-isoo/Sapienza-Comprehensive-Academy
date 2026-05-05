@@ -1,216 +1,685 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sapienza Comprehensive Academy</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="images/logo.jpg">
-
-  <!-- WhatsApp / Social Media Preview -->
-  <meta property="og:title" content="Sapienza Comprehensive Academy" />
-  <meta property="og:description" content="Welcome to Sapienza Comprehensive Academy" />
-  <meta property="og:image" content="https://sapienza-academy.netlify.app/images/logo.jpg" />
-  <meta property="og:url" content="https://sapienza-academy.netlify.app/" />
-  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="images/logo.jpg"/>
+  <meta property="og:title" content="Sapienza Comprehensive Academy"/>
+  <meta property="og:description" content="Welcome to Sapienza Comprehensive Academy"/>
+  <meta property="og:image" content="https://sapienza-academy.netlify.app/images/logo.jpg"/>
+  <meta property="og:url" content="https://sapienza-academy.netlify.app/"/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
+<body class="dark-mode">
 
-<body>
- <nav class="navbar">
-  <div class="logo">
-    <img src="images/logo.jpg" alt="Logo">
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-ring"></div>
+  <div class="loader-logo-wrap">
+    <img src="images/logo.jpg" alt="Sapienza" class="loader-logo"/>
   </div>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="navbar-spacer"></div>
+  <div class="loader-text">Sapienza Comprehensive Academy</div>
+  <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- PARTICLES -->
+<canvas class="particles-bg" id="particlesBg"></canvas>
+
+<!-- DARK/LIGHT TOGGLE -->
+<button class="theme-toggle" id="themeToggle" title="Toggle theme">
+  <i class="fa-solid fa-sun" id="themeIcon"></i>
+</button>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="Sapienza"/>
+      <span>Sapienza</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-spacer"></div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
 </nav>
 
-  <section class="intro">
-    <h1>Sapienza Comprehensive Academy</h1>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="mob-link">Home</a>
+  <a href="about.html" class="mob-link">About</a>
+  <a href="contact.html" class="mob-link">Contact</a>
+</div>
 
-    <p class="description">
-      At Sapienza Comprehensive Academy, we are committed to shaping the future of learners across elementary,
-      middle, and high school levels Explore our activities and discover what we have to offer!.
-    </p>
-  </section>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span> Enrolling Now — 2025/2026 Session</div>
+    <h1 class="hero-title">
+      <span class="ht-line">Sapienza</span>
+      <span class="ht-line italic">Comprehensive</span>
+      <span class="ht-line">Academy</span>
+    </h1>
+    <div class="hero-typewriter">
+      <span id="typewriterText"></span><span class="tw-cursor">|</span>
+    </div>
+    <p class="hero-desc">Shaping the future of learners across elementary, middle, and high school — with world-class education rooted in excellence, creativity, and character.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary pulse-btn">Enrol Today <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#subjects" class="btn-ghost">Explore Subjects <i class="fa-solid fa-chevron-down"></i></a>
+    </div>
+    <div class="hero-counters">
+      <div class="hc-item"><span class="hc-num" data-target="500">0</span><span class="hc-plus">+</span><span class="hc-label">Students</span></div>
+      <div class="hc-div"></div>
+      <div class="hc-item"><span class="hc-num" data-target="30">0</span><span class="hc-plus">+</span><span class="hc-label">Teachers</span></div>
+      <div class="hc-div"></div>
+      <div class="hc-item"><span class="hc-num" data-target="8">0</span><span class="hc-plus"></span><span class="hc-label">Subjects</span></div>
+      <div class="hc-div"></div>
+      <div class="hc-item"><span class="hc-num" data-target="10">0</span><span class="hc-plus">+</span><span class="hc-label">Years</span></div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="si-line"></div>
+    <span>scroll down</span>
+  </div>
+</section>
 
-  <!-- MATHEMATICS SECTION -->
-  <section class="subject-section">
-    <h2>Mathematics</h2>
+<!-- WAVE DIVIDER -->
+<div class="wave-divider wave-1">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--surface)"/>
+  </svg>
+</div>
 
-    <div class="subject-content">
-      <p>Learn numbers, algebra, geometry, and problem-solving skills for all levels.</p>
+<!-- SUBJECTS SECTION -->
+<section class="subjects" id="subjects">
+  <div class="wrap">
+    <div class="sec-head" data-aos>
+      <div class="sec-label">CURRICULUM</div>
+      <h2 class="sec-title">Our <em>Subjects</em></h2>
+      <p class="sec-sub">Eight carefully crafted subjects designed to develop well-rounded, confident learners.</p>
+    </div>
+    <div class="subjects-grid" id="subjectsGrid"></div>
+  </div>
+</section>
 
-      <div class="slideshow">
-        <img src="images/math.jpg" class="slide active">
-        <img src="images/math2.jpg" class="slide">
-        <img src="images/math-3.jpg" class="slide">
-        <img src="images/math-4.jpg" class="slide">
-        <img src="images/math5.jpg" class="slide">
+<!-- WAVE DIVIDER 2 -->
+<div class="wave-divider wave-2">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="var(--surface)"/>
+  </svg>
+</div>
+
+<!-- GALLERY / SLIDESHOWS -->
+<section class="gallery-sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head" data-aos>
+      <div class="sec-label">LIFE AT SAPIENZA</div>
+      <h2 class="sec-title">In the <em>Classroom</em></h2>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="sec-head" data-aos>
+      <div class="sec-label">WHAT PARENTS SAY</div>
+      <h2 class="sec-title">Trusted by <em>Families</em></h2>
+    </div>
+    <div class="testi-track" id="testiTrack">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Sapienza has transformed my child's love for learning. The teachers are exceptional and the environment is truly nurturing."</p>
+        <div class="testi-author"><div class="ta-av" style="background:linear-gradient(135deg,#464be8,#8b5cf6)">A</div><div><strong>Adunola Bello</strong><span>Parent · Lagos</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The curriculum is world-class. My daughter's reading and maths have improved dramatically since joining Sapienza."</p>
+        <div class="testi-author"><div class="ta-av" style="background:linear-gradient(135deg,#10b981,#059669)">O</div><div><strong>Olumide Taiwo</strong><span>Parent · Lagos</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Exceptional school with dedicated staff. The balance between academics and creativity is something you rarely find."</p>
+        <div class="testi-author"><div class="ta-av" style="background:linear-gradient(135deg,#f59e0b,#d97706)">F</div><div><strong>Fatima Okafor</strong><span>Parent · Ikorodu</span></div></div>
       </div>
     </div>
-  </section>
-
-  <!-- ENGLISH SECTION -->
-  <section class="subject-section">
-    <h2>English </h2>
-
-    <div class="subject-content">
-      <p>Improve reading, writing, grammar, and communication skills.</p>
-
-      <div class="slideshow">
-        <img src="images/english-5.jpg" class="slide active">
-        <img src="images/english-4.jpg" class="slide">
-        <img src="images/english-3.jpg" class="slide">
-        <img src="images/english-2.jpg" class="slide">
-        <img src="images/english.jpg" class="slide">
-      </div>
+    <div class="testi-dots" id="testiDots">
+      <span class="tdot active"></span>
+      <span class="tdot"></span>
+      <span class="tdot"></span>
     </div>
-  </section>
-  <!-- SCIENCE SECTION -->
-  <section class="subject-section">
-    <h2>Basic Science and Tech </h2>
+  </div>
+</section>
 
-    <div class="subject-content">
-      <p>
-        Explore materials, energy, technology, and practical experiments that explain the world around us.
-      </p>
-
-      <div class="slideshow">
-        <img src="images/science-1.jpg" class="slide active">
-        <img src="images/science-2.jpg" class="slide">
-        <img src="images/science-3.jpg" class="slide">
-        <img src="images/science-4.jpg" class="slide">
-        <img src="images/science-5.jpg" class="slide">
-      </div>
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-glow"></div>
+  <div class="wrap">
+    <div class="cta-inner" data-aos>
+      <h2>Ready to Join Sapienza?</h2>
+      <p>Give your child the education they deserve. Enrol today for the 2025/2026 session.</p>
+      <a href="contact.html" class="btn-primary pulse-btn">Contact Us Now <i class="fa-solid fa-arrow-right"></i></a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CREATIVE SUBJECTS SECTION -->
-  <section class="subject-section">
-    <h2>Physical,Social,Health and Emotional Education( PSHEE)</h2>
+<!-- SUBJECT MODAL -->
+<div class="modal-overlay" id="subjectModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-icon" id="modalIcon"></div>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <div class="modal-tags" id="modalTags"></div>
+    <div class="modal-slideshow" id="modalSlideshow"></div>
+  </div>
+</div>
 
-    <div class="subject-content">
-      <p> 
-        Developing healthy bodies, positive minds, and strong social skills.
-      </p>
-
-      <div class="slideshow">
-        <img src="images/creative.jpg" class="slide active">
-        <img src="images/creative-2.jpg" class="slide">
-        <img src="images/creative-3.jpg" class="slide">
-        <img src="images/creative-4.jpg" class="slide">
-        <img src="images/creative-5.jpg" class="slide">
-      </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="fi-brand">
+      <img src="images/logo.jpg" alt="Sapienza" class="fi-logo-img"/>
+      <div class="fi-logo-text">Sapienza<span>.</span></div>
+      <p>Excellence in education since 2014. Shaping tomorrow's leaders today.</p>
     </div>
-  </section>
+    <div class="fi-col"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    <div class="fi-col"><h4>Contact</h4><p>📧 sapienzaacademy5@gmail.com</p><p>📞 +234 806 0063 122</p><p>📍 Ikorodu, Lagos Nigeria</p></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Sapienza Comprehensive Academy. All rights reserved.</p></div>
+</footer>
 
-  <!-- RELIGIOUS STUDIES SECTION -->
-  <section class="subject-section">
-    <h2>
-      Phonics and Elocution</h2>
-    <div class="subject-content">
-      <p> 
-       Build clear pronunciation, confident speech, and strong communication skills.
-      </p>
+<script>
+/* ============================================================
+   SAPIENZA ACADEMY — index page script (NO theme toggle here)
+   Theme toggle is handled exclusively by shared.js
+============================================================ */
 
-      <div class="slideshow">
-        <img src="images/phonics.jpg" class="slide active">
-        <img src="images/phonics-2.png" class="slide">
-        <img src="images/phonics-5.jpg" class="slide">
-        <img src="images/phonics-4.jpg" class="slide">
-        <img src="images/phonics-3.jpg" class="slide">
-      </div>
-    </div>
-  </section>
+// ── LOADER ───────────────────────────────────────────────────
+const loader = document.getElementById('loader');
+const loaderFill = document.getElementById('loaderFill');
+if (loader) {
+  let pct = 0;
+  const fill = setInterval(() => {
+    pct += Math.random() * 15 + 5;
+    if (pct > 100) pct = 100;
+    if (loaderFill) loaderFill.style.width = pct + '%';
+    if (pct >= 100) {
+      clearInterval(fill);
+      setTimeout(() => {
+        loader.classList.add('out');
+        setTimeout(() => { loader.style.display = 'none'; }, 700);
+      }, 300);
+    }
+  }, 80);
+}
 
-  <section class="subject-section">
-    <h2>
-    Expressive Art and Design</h2>
-    <div class="subject-content">
-      <p>  
-        Inspiring creativity, imagination, and self-expression.
-      </p>
+// ── CURSOR ───────────────────────────────────────────────────
+const cursor = document.getElementById('cursor');
+const cursorFollower = document.getElementById('cursorFollower');
+let mx = 0, my = 0, fx = 0, fy = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  if (cursor) { cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; }
+});
+(function animateCursor() {
+  fx += (mx - fx) * 0.12; fy += (my - fy) * 0.12;
+  if (cursorFollower) { cursorFollower.style.left = fx + 'px'; cursorFollower.style.top = fy + 'px'; }
+  requestAnimationFrame(animateCursor);
+})();
+document.querySelectorAll('a,button,.sub-card,.gallery-item,.testi-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { if (cursorFollower) { cursorFollower.style.transform = 'translate(-50%,-50%) scale(1.6)'; cursorFollower.style.borderColor = 'var(--primary)'; } });
+  el.addEventListener('mouseleave', () => { if (cursorFollower) { cursorFollower.style.transform = 'translate(-50%,-50%) scale(1)'; cursorFollower.style.borderColor = 'rgba(70,75,232,0.5)'; } });
+});
 
-      <div class="slideshow">
-        <img src="images/art.jpg" class="slide active">
-        <img src="images/art-2.jpg" class="slide">
-        <img src="images/art-4.jpg" class="slide">
-        <img src="images/art-3.jpg" class="slide">
-        <img src="images/art-5.jpg" class="slide">
-      </div>
-    </div>
-  </section>
+// ── NAVBAR ───────────────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
 
-   <section class="subject-section">
-    <h2>
-    Yoruba</h2>
-    <div class="subject-content">
-      <p> 
-        Encourages pride in local language and cultural identity.
-      </p>
-
-      <div class="slideshow">
-        <img src="images/yoruba.jpg" class="slide active">
-        <img src="images/yoruba-2.jpg" class="slide">
-        <img src="images/yoruba-3.jpg" class="slide">
-        <img src="images/yoruba-4.jpg" class="slide">
-        <img src="images/yoruba-5.jpg" class="slide">
-      </div>
-    </div>
-  </section>
-   
-
-  
-   <section class="subject-section">
-    <h2>
-    French</h2>
-    <div class="subject-content">
-      <p> 
-       Building basic communication skills in a global language.
-      </p>
-
-      <div class="slideshow">
-        <img src="images/french.jpg" class="slide active">
-        <img src="images/french-1.jpg" class="slide">
-        <img src="images/french-3.jpg" class="slide">
-        <img src="images/french-2.jpg" class="slide">
-        <img src="images/french-5.jpg" class="slide">
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <script>
-    document.querySelectorAll(".slideshow").forEach(slideshow => {
-      const slides = slideshow.querySelectorAll(".slide");
-      let index = 0;
-
-      setInterval(() => {
-        slides[index].classList.remove("active");
-        index = (index + 1) % slides.length;
-        slides[index].classList.add("active");
-      }, 3000); // change image every 3 seconds
+// ── HAMBURGER ────────────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mob-link').forEach(l => {
+    l.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
     });
-  </script>
+  });
+}
 
+// ── PARTICLES CANVAS ─────────────────────────────────────────
+const canvas = document.getElementById('particlesBg');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let W = canvas.width = window.innerWidth;
+  let H = canvas.height = window.innerHeight;
+  const particles = Array.from({ length: 70 }, () => ({
+    x: Math.random() * W, y: Math.random() * H,
+    vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+    size: Math.random() * 1.5 + 0.5,
+    color: ['rgba(70,75,232,', 'rgba(139,92,246,', 'rgba(6,182,212,'][Math.floor(Math.random() * 3)],
+    alpha: Math.random() * 0.5 + 0.1,
+    pulse: Math.random() * Math.PI * 2,
+  }));
+  function drawParticles() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.pulse += 0.015;
+      const a = p.alpha + Math.sin(p.pulse) * 0.12;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + a + ')';
+      ctx.fill();
+    });
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 90) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(70,75,232,${0.06 * (1 - dist / 90)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+  window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
+}
 
+// ── AOS SCROLL REVEAL ────────────────────────────────────────
+function initAOS() {
+  const els = document.querySelectorAll('[data-aos]');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+initAOS();
+
+// ── SMOOTH ANCHORS ───────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+/* ============================================================
+   SAPIENZA ACADEMY — index.js
+============================================================ */
+
+// ── SUBJECT DATA ─────────────────────────────────────────────
+const SUBJECTS = [
+  {
+    id: 'maths', icon: '🔢', label: 'Mathematics',
+    tagline: 'Numbers come alive',
+    desc: 'Building strong foundations in arithmetic, algebra, geometry and problem-solving across all levels.',
+    fullDesc: 'Our Mathematics curriculum spans number theory, algebra, geometry, statistics, and advanced problem-solving. Students develop analytical thinking and logical reasoning skills that serve them for life.',
+    tags: ['Algebra', 'Geometry', 'Arithmetic', 'Problem Solving', 'Statistics'],
+    c1: '#3238c8', c2: '#6366f1',
+    iconBg: 'rgba(70,75,232,0.12)', iconColor: '#6366f1', iconShadow: 'rgba(70,75,232,0.25)',
+    images: ['images/math.jpg','images/math2.jpg','images/math-3.jpg','images/math-4.jpg','images/math5.jpg'],
+  },
+  {
+    id: 'english', icon: '📖', label: 'English',
+    tagline: 'Words that move the world',
+    desc: 'Developing confident readers and expressive writers through structured literacy and communication.',
+    fullDesc: 'English at Sapienza covers reading comprehension, creative and analytical writing, grammar, oral communication, and literature study — preparing students for academic and professional excellence.',
+    tags: ['Reading', 'Writing', 'Grammar', 'Literature', 'Speech'],
+    c1: '#7c3aed', c2: '#a78bfa',
+    iconBg: 'rgba(139,92,246,0.12)', iconColor: '#a78bfa', iconShadow: 'rgba(139,92,246,0.25)',
+    images: ['images/english-5.jpg','images/english-4.jpg','images/english-3.jpg','images/english-2.jpg','images/english.jpg'],
+  },
+  {
+    id: 'science', icon: '🔬', label: 'Basic Science & Tech',
+    tagline: 'Explore the world',
+    desc: 'Hands-on exploration of materials, energy, technology, and the natural world through experiments.',
+    fullDesc: 'Students explore biology, chemistry, physics, and emerging technologies through practical experiments, developing curiosity and scientific reasoning that prepares them for a tech-driven future.',
+    tags: ['Biology', 'Chemistry', 'Physics', 'Technology', 'Experiments'],
+    c1: '#065f46', c2: '#10b981',
+    iconBg: 'rgba(16,185,129,0.12)', iconColor: '#10b981', iconShadow: 'rgba(16,185,129,0.25)',
+    images: ['images/science-1.jpg','images/science-2.jpg','images/science-3.jpg','images/science-4.jpg','images/science-5.jpg'],
+  },
+  {
+    id: 'pshee', icon: '💪', label: 'PSHEE',
+    tagline: 'Whole-child wellness',
+    desc: 'Physical, Social, Health & Emotional Education — developing healthy, confident young people.',
+    fullDesc: 'PSHEE develops the whole child: physical fitness, emotional resilience, healthy relationships, social responsibility, and self-awareness — equipping students with lifelong wellbeing skills.',
+    tags: ['Physical Health', 'Emotional Wellbeing', 'Social Skills', 'Fitness', 'Mindfulness'],
+    c1: '#b45309', c2: '#f59e0b',
+    iconBg: 'rgba(245,158,11,0.12)', iconColor: '#f59e0b', iconShadow: 'rgba(245,158,11,0.25)',
+    images: ['images/creative.jpg','images/creative-2.jpg','images/creative-3.jpg','images/creative-4.jpg','images/creative-5.jpg'],
+  },
+  {
+    id: 'phonics', icon: '🎙️', label: 'Phonics & Elocution',
+    tagline: 'Speak with confidence',
+    desc: 'Building clear pronunciation, confident public speaking, and strong communication skills.',
+    fullDesc: 'Our Phonics and Elocution programme develops clear articulation, confident oral presentation, reading fluency, and effective communication — skills vital for academic and personal success.',
+    tags: ['Pronunciation', 'Public Speaking', 'Reading Fluency', 'Confidence', 'Communication'],
+    c1: '#0e7490', c2: '#06b6d4',
+    iconBg: 'rgba(6,182,212,0.12)', iconColor: '#06b6d4', iconShadow: 'rgba(6,182,212,0.25)',
+    images: ['images/phonics.jpg','images/phonics-2.png','images/phonics-5.jpg','images/phonics-4.jpg','images/phonics-3.jpg'],
+  },
+  {
+    id: 'art', icon: '🎨', label: 'Expressive Art & Design',
+    tagline: 'Create without limits',
+    desc: 'Inspiring creativity and imagination through visual arts, crafts, and expressive design.',
+    fullDesc: 'Art and Design at Sapienza encourages students to express ideas visually through drawing, painting, sculpture, and digital design — building creativity, fine motor skills, and aesthetic sensibility.',
+    tags: ['Drawing', 'Painting', 'Sculpture', 'Design', 'Creativity'],
+    c1: '#9d174d', c2: '#ec4899',
+    iconBg: 'rgba(236,72,153,0.12)', iconColor: '#ec4899', iconShadow: 'rgba(236,72,153,0.25)',
+    images: ['images/art.jpg','images/art-2.jpg','images/art-4.jpg','images/art-3.jpg','images/art-5.jpg'],
+  },
+  {
+    id: 'yoruba', icon: '🥁', label: 'Yoruba',
+    tagline: 'Cultural roots matter',
+    desc: 'Connecting students to their heritage through language, culture, and proud local identity.',
+    fullDesc: 'Yoruba language education at Sapienza preserves cultural heritage while developing bilingual skills. Students learn speaking, reading, writing, proverbs, and rich Yoruba traditions and values.',
+    tags: ['Language', 'Culture', 'Heritage', 'Reading', 'Speaking'],
+    c1: '#7c2d12', c2: '#f97316',
+    iconBg: 'rgba(249,115,22,0.12)', iconColor: '#f97316', iconShadow: 'rgba(249,115,22,0.25)',
+    images: ['images/yoruba.jpg','images/yoruba-2.jpg','images/yoruba-3.jpg','images/yoruba-4.jpg','images/yoruba-5.jpg'],
+  },
+  {
+    id: 'french', icon: '🗼', label: 'French',
+    tagline: 'A global language',
+    desc: 'Building basic communication skills in one of the world\'s most widely spoken languages.',
+    fullDesc: 'French at Sapienza introduces students to the language through vocabulary, grammar, conversation, and cultural exploration — giving them a powerful global communication advantage from early age.',
+    tags: ['Vocabulary', 'Grammar', 'Conversation', 'Culture', 'Global Skills'],
+    c1: '#1e3a8a', c2: '#3b82f6',
+    iconBg: 'rgba(59,130,246,0.12)', iconColor: '#3b82f6', iconShadow: 'rgba(59,130,246,0.25)',
+    images: ['images/french.jpg','images/french-1.jpg','images/french-3.jpg','images/french-2.jpg','images/french-5.jpg'],
+  },
+  {
+  id: 'physics', icon: '⚛️', label: 'Physics',
+  tagline: 'Understanding how the universe works',
+  desc: 'Exploring motion, energy, forces, and the laws that govern nature.',
+  fullDesc: 'Physics at Sapienza helps students understand matter, energy, electricity, waves, and motion. It builds strong analytical thinking through experiments, problem-solving, and real-world applications of scientific laws.',
+  tags: ['Forces', 'Energy', 'Motion', 'Waves', 'Electricity'],
+  c1: '#1e3a8a', c2: '#3b82f6',
+  iconBg: 'rgba(59,130,246,0.12)', iconColor: '#3b82f6', iconShadow: 'rgba(59,130,246,0.25)',
+  images: ['images/physics.jpg','images/physics-1.jpg','images/physics-2.jpg','images/physics-3.jpg','images/physics-4.jpg'],
+},
+{
+  id: 'chemistry', icon: '🧪', label: 'Chemistry',
+  tagline: 'The science of substances',
+  desc: 'Studying matter, reactions, and the building blocks of life and materials.',
+  fullDesc: 'Chemistry at Sapienza teaches atoms, elements, compounds, chemical reactions, and laboratory techniques. Students learn how substances interact and transform in everyday life and industry.',
+  tags: ['Atoms', 'Reactions', 'Elements', 'Lab Work', 'Compounds'],
+  c1: '#065f46', c2: '#10b981',
+  iconBg: 'rgba(16,185,129,0.12)', iconColor: '#10b981', iconShadow: 'rgba(16,185,129,0.25)',
+  images: ['images/chemistry.jpg','images/chemistry-1.jpg','images/chemistry-2.jpg','images/chemistry-3.jpg','images/chemistry-4.jpg'],
+},
+{
+  id: 'biology', icon: '🧬', label: 'Biology',
+  tagline: 'Life in all its forms',
+  desc: 'Exploring living organisms and how life functions and evolves.',
+  fullDesc: 'Biology at Sapienza covers cells, genetics, human body systems, plants, animals, and ecosystems. Students learn how living things grow, survive, and interact with their environment.',
+  tags: ['Cells', 'Genetics', 'Ecosystem', 'Human Body', 'Plants'],
+  c1: '#166534', c2: '#22c55e',
+  iconBg: 'rgba(34,197,94,0.12)', iconColor: '#22c55e', iconShadow: 'rgba(34,197,94,0.25)',
+  images: ['images/biology.jpg','images/biology-1.jpg','images/biology-2.jpg','images/biology-3.jpg','images/biology-4.jpg'],
+},
+{
+  id: 'economics', icon: '📊', label: 'Economics',
+  tagline: 'Understanding wealth and systems',
+  desc: 'Studying how money, resources, and markets shape society.',
+  fullDesc: 'Economics at Sapienza teaches supply and demand, inflation, trade, markets, and financial systems. Students learn how individuals, businesses, and governments make economic decisions.',
+  tags: ['Markets', 'Supply', 'Demand', 'Finance', 'Trade'],
+  c1: '#7c2d12', c2: '#f97316',
+  iconBg: 'rgba(249,115,22,0.12)', iconColor: '#f97316', iconShadow: 'rgba(249,115,22,0.25)',
+  images: ['images/economics.jpg','images/economics-1.jpg','images/economics-2.jpg','images/economics-3.jpg','images/economics-4.jpg'],
+},
+{
+  id: 'accounting', icon: '📒', label: 'Accounting',
+  tagline: 'Managing financial records',
+  desc: 'Tracking money flow, records, and business financial health.',
+  fullDesc: 'Accounting at Sapienza teaches bookkeeping, financial statements, budgeting, and business transactions. Students learn how to record, analyze, and manage financial information for organizations.',
+  tags: ['Bookkeeping', 'Finance', 'Records', 'Budgeting', 'Business'],
+  c1: '#1f2937', c2: '#6b7280',
+  iconBg: 'rgba(107,114,128,0.12)', iconColor: '#6b7280', iconShadow: 'rgba(107,114,128,0.25)',
+  images: ['images/accounting.jpg','images/accounting-1.jpg','images/accounting-2.jpg','images/accounting-3.jpg','images/accounting-4.jpg'],
+},
+
+];
+
+// ── BUILD SUBJECTS GRID ───────────────────────────────────────
+const grid = document.getElementById('subjectsGrid');
+if (grid) {
+  SUBJECTS.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = 'sub-card';
+    card.style.setProperty('--d', (i * 0.08) + 's');
+    card.style.setProperty('--c1', s.c1);
+    card.style.setProperty('--c2', s.c2);
+    card.style.setProperty('--icon-bg', s.iconBg);
+    card.style.setProperty('--icon-color', s.iconColor);
+    card.style.setProperty('--icon-shadow', s.iconShadow);
+    card.innerHTML = `
+      <div class="sub-inner">
+        <div class="sub-front">
+          <div class="sub-icon" style="animation-delay:${i * 0.4}s">${s.icon}</div>
+          <h3>${s.label}</h3>
+          <p>${s.tagline}</p>
+        </div>
+        <div class="sub-back">
+          <h3>${s.label}</h3>
+          <p>${s.desc}</p>
+          <button class="sub-back-btn" data-subject="${s.id}">Learn More →</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  const subObs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); subObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.sub-card').forEach(el => subObs.observe(el));
+
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('.sub-back-btn');
+    if (btn) openModal(btn.dataset.subject);
+  });
+}
+
+// ── BUILD GALLERY ─────────────────────────────────────────────
+const galleryGrid = document.getElementById('galleryGrid');
+if (galleryGrid) {
+  SUBJECTS.forEach((s, i) => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.style.setProperty('--d', (i * 0.1) + 's');
+    const slidesHTML = s.images.map((img, j) => `<div class="gallery-slide${j === 0 ? ' active' : ''}" style="background-image:url('${img}')"></div>`).join('');
+    item.innerHTML = `<div class="gallery-slideshow">${slidesHTML}</div><div class="gallery-label">${s.label}</div>`;
+    galleryGrid.appendChild(item);
+
+    const slides = item.querySelectorAll('.gallery-slide');
+    let idx = 0;
+    setInterval(() => {
+      slides[idx].classList.remove('active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('active');
+    }, 2800 + i * 300);
+  });
+
+  const galObs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); galObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.gallery-item').forEach(el => galObs.observe(el));
+}
+
+// ── MODAL ─────────────────────────────────────────────────────
+const modal = document.getElementById('subjectModal');
+const modalClose = document.getElementById('modalClose');
+
+function openModal(id) {
+  const s = SUBJECTS.find(x => x.id === id);
+  if (!s || !modal) return;
+  document.getElementById('modalIcon').textContent = s.icon;
+  document.getElementById('modalTitle').textContent = s.label;
+  document.getElementById('modalDesc').textContent = s.fullDesc;
+  const tagsEl = document.getElementById('modalTags');
+  tagsEl.innerHTML = s.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+  const slideEl = document.getElementById('modalSlideshow');
+  slideEl.innerHTML = s.images.map((img, j) => `<div class="modal-slide${j === 0 ? ' active' : ''}" style="background-image:url('${img}')"></div>`).join('');
+  const mSlides = slideEl.querySelectorAll('.modal-slide');
+  let mIdx = 0;
+  clearInterval(window._modalSlideTimer);
+  window._modalSlideTimer = setInterval(() => {
+    mSlides[mIdx].classList.remove('active');
+    mIdx = (mIdx + 1) % mSlides.length;
+    mSlides[mIdx].classList.add('active');
+  }, 2500);
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  if (modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+  clearInterval(window._modalSlideTimer);
+}
+
+if (modalClose) modalClose.addEventListener('click', closeModal);
+if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── TYPEWRITER ────────────────────────────────────────────────
+const phrases = ['Excellence in Education.', 'Building Future Leaders.', 'Where Curiosity Meets Knowledge.', 'Your Child\'s Best Chapter Starts Here.'];
+let pIdx = 0, cIdx = 0, deleting = false;
+const twEl = document.getElementById('typewriterText');
+
+function typeWriter() {
+  if (!twEl) return;
+  const current = phrases[pIdx];
+  if (!deleting) {
+    twEl.textContent = current.slice(0, cIdx + 1);
+    cIdx++;
+    if (cIdx === current.length) { deleting = true; setTimeout(typeWriter, 1800); return; }
+  } else {
+    twEl.textContent = current.slice(0, cIdx - 1);
+    cIdx--;
+    if (cIdx === 0) { deleting = false; pIdx = (pIdx + 1) % phrases.length; }
+  }
+  setTimeout(typeWriter, deleting ? 45 : 75);
+}
+setTimeout(typeWriter, 2000);
+
+// ── HERO STAGGER ──────────────────────────────────────────────
+setTimeout(() => {
+  document.querySelectorAll('.ht-line').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+  });
+  setTimeout(() => {
+    const tw = document.querySelector('.hero-typewriter');
+    const desc = document.querySelector('.hero-desc');
+    const btns = document.querySelector('.hero-btns');
+    const ctrs = document.querySelector('.hero-counters');
+    if (tw) tw.classList.add('visible');
+    if (desc) desc.classList.add('visible');
+    if (btns) btns.classList.add('visible');
+    if (ctrs) ctrs.classList.add('visible');
+  }, 800);
+}, 1600);
+
+// ── COUNTERS ──────────────────────────────────────────────────
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  let val = 0;
+  const step = target / 60;
+  const t = setInterval(() => {
+    val += step;
+    if (val >= target) { val = target; clearInterval(t); }
+    el.textContent = Math.floor(val);
+  }, 25);
+}
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.hc-num').forEach(animateCounter);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+const heroCounters = document.querySelector('.hero-counters');
+if (heroCounters) counterObs.observe(heroCounters);
+
+// ── TESTIMONIAL MOBILE CAROUSEL ───────────────────────────────
+const testiCards = document.querySelectorAll('.testi-card');
+const testiDots = document.querySelectorAll('.tdot');
+let tIdx = 0;
+
+function showTesti(n) {
+  if (window.innerWidth > 768) return;
+  testiCards.forEach(c => c.style.display = 'none');
+  testiDots.forEach(d => d.classList.remove('active'));
+  tIdx = (n + testiCards.length) % testiCards.length;
+  testiCards[tIdx].style.display = 'block';
+  testiDots[tIdx].classList.add('active');
+}
+testiDots.forEach((d, i) => d.addEventListener('click', () => showTesti(i)));
+setInterval(() => showTesti(tIdx + 1), 4000);
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) { testiCards.forEach(c => c.style.display = ''); }
+  else showTesti(tIdx);
+});
+
+const testiObs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); testiObs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+testiCards.forEach(el => testiObs.observe(el));
+</script>
+
+<!-- shared.js MUST be last — it owns the theme toggle -->
+<script src="shared.js"></script>
 
 </body>
-
 </html>

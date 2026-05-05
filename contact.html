@@ -1,43 +1,143 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sapienza Comprehensive Academy - Contact</title>
-  <link rel="stylesheet" href="contact.css">
-   <link rel="icon" type="image/png" href="images/logo.jpg">
+
+  <link rel="icon" type="image/png" href="images/logo.jpg"/>
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="contact.css"/>
 </head>
-<body>
 
-  <!-- BLURRED BACKGROUND -->
-  <div class="blur-bg"></div>
+<body class="dark-mode">
 
-  <!-- NAVBAR -->
-   <nav class="navbar">
-  <div class="logo">
-    <img src="images/logo.jpg" alt="Logo">
+<!-- PARTICLES -->
+<canvas class="particles-bg" id="particlesBg"></canvas>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="Logo">
+      <span>Sapienza</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a class="active" href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- THEME BUTTON -->
+    <button class="theme-toggle" id="themeToggle">
+      <i class="fa-solid fa-sun" id="themeIcon"></i>
+    </button>
+
   </div>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="navbar-spacer"></div>
 </nav>
-  <!-- PAGE TITLE -->
-  <h1 class="page-title">Contact Sapienza Academy</h1>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact-section">
-    <div class="contact-card">
-      <h2>Get in Touch</h2>
-      <p><strong>Email:</strong>  sapienzaacademy5@gmail.com </p>
-      <p><strong>Phone:</strong> +234 806 0063 122</p>
-      <p><strong>Other Phone:</strong>+1 (825) 883-9002</p>
-      <p><strong>Address:</strong>5, New Earth Street, Unity Estate, Oke Eletu,Ikorodu, Lagos Nigeria</p>
-       <p><strong>Other Address:</strong>989 Ranchview Cres NWCalgary AB. T3G2H8, Canada</p>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="contact-hero">
+  <h1>Get In <span>Touch</span></h1>
+  <p>We are always available for admissions, enquiries, and support.</p>
+</section>
+
+<!-- CONTACT CARDS -->
+<section class="contact-wrapper">
+
+  <div class="contact-card">
+    <i class="fa-solid fa-envelope"></i>
+    <h3>Email</h3>
+    <p>sapienzaacademy5@gmail.com</p>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-solid fa-phone"></i>
+    <h3>Phone</h3>
+    <p>+234 806 0063 122</p>
+    <p>+1 (825) 883-9002</p>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-solid fa-location-dot"></i>
+    <h3>Address</h3>
+    <p>Ikorodu, Lagos Nigeria</p>
+    <p>Calgary, Canada</p>
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="contact-cta">
+  <h2>Ready to Join Sapienza?</h2>
+
+  <button class="cta-btn"
+    onclick="document.getElementById('applyForm').scrollIntoView({behavior:'smooth'})">
+    Apply Now
+  </button>
+</section>
+
+<!-- APPLY FORM -->
+<section class="apply-form" id="applyForm">
+
+  <h2>Send Your Application</h2>
+  <p>Fill the form below and we will respond via email.</p>
+
+  <form id="contactForm">
+
+    <input type="text" id="name" placeholder="Full Name" required />
+    <input type="email" id="email" placeholder="Email Address" required />
+    <textarea id="message" placeholder="Your Message / Application" required></textarea>
+
+    <button type="submit">Send Application</button>
+
+  </form>
+
+</section>
+
+<!-- EMAILJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  emailjs.init("YOUR_PUBLIC_KEY");
+
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+      from_name: document.getElementById("name").value,
+      from_email: document.getElementById("email").value,
+      message: document.getElementById("message").value
+    })
+    .then(() => {
+      alert("Application sent successfully!");
+      form.reset();
+    })
+    .catch(() => {
+      alert("Failed to send. Try again.");
+    });
+  });
+
+});
+</script>
+
+<!-- GLOBAL SCRIPT (MUST BE LAST) -->
+<script src="shared.js"></script>
 
 </body>
 </html>

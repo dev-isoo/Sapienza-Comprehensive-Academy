@@ -1,229 +1,178 @@
- /* =========================
-   RESET
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+ body {
+  cursor: default;
+}
+ 
+ 
+ /* HERO */
+.about-hero {
+  height:50vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
-/* =========================
-   FULL PAGE BLURRED BACKGROUND
-========================= */
-.blur-bg {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    #ffffff,
-    #464be8,
-    #ffffff
-  );
-  filter: blur(18px);
-  transform: scale(1.1);
-  z-index: -1;
+.about-hero h1 {
+  font-size:3rem;
+  font-family:var(--font-serif);
 }
 
-/* =========================
-   NAVBAR
-========================= */
-  .navbar {
+.about-hero span {
+  color:var(--primary);
+}
+
+.about-hero p {
+  color:var(--muted);
+}
+
+/* ABOUT */
+.about {
+  padding:80px 0;
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.about-text h2 {
+  font-size:2rem;
+  margin-bottom:10px;
+}
+
+.about-text p {
+  color:var(--muted);
+}
+
+.about-stats {
+  display:flex;
+  gap:20px;
+  margin-top:20px;
+}
+
+.about-stats h3 {
+  color:var(--primary);
+}
+
+/* IMAGE */
+.about-img img {
+  width:100%;
+  border-radius:20px;
+}
+
+/* MISSION */
+.mission {
+  padding:80px 0;
+  background:var(--surface);
+}
+
+.mission-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.mission-card {
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  background:var(--card);
+  border:1px solid var(--border2);
+}
+
+.mission-card i {
+  font-size:2rem;
+  color:var(--primary);
+  margin-bottom:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about-grid {
+    grid-template-columns:1fr;
+  }
+
+  .mission-grid {
+    grid-template-columns:1fr;
+  }
+}
+ .particles-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 90px;
-  background-color: #464be8;
-  z-index: 1000;
-
-  display: flex;
-  justify-content: space-between;  /* changed from center */
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;           /* so padding doesn't cause overflow */
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; /* THIS IS THE KEY FIX */
+}
+.mission {
+  padding: 80px 20px;
+  background: #0f172a;
+  color: white;
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 55px;
-  margin: 0;
-  padding: 0;
-  font-size: 24px;
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
-.navbar ul li a {
-  color: black;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.navbar a:hover {
-  color: aqua;
-}
-@media (max-width: 768px) {
-  section {
-    scroll-margin-top: 110px; /* navbar is taller on mobile */
-  }
-}
-
-
-.navbar a:hover {
-  color: aqua;
-}
-
-/* =========================
-   PAGE TITLE (H1)
-========================= */
-.page-title {
-  position:relative;          /* FIXED ISSUE */
-  top: 100px;                /* sits below navbar */
-  margin: 0 auto 40px;
-  width: fit-content;
-
-  background-color: #fff;
-  color: #464be8;
-  padding: 15px 35px;
-  border-radius: 50px;
-  font-size: 28px;
-  font-weight: bold;
+.mission-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
   text-align: center;
-
-  z-index: 10;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* =========================
-   CONTENT SECTION
-========================= */
-.about-academy {
+  transition: all 0.4s ease;
   position: relative;
-  padding: 140px 20px 60px;  /* navbar space included */
-  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* =========================
-   INTRO
-========================= */
-.about-intro {
-  color: #fff;
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 16px;
-  line-height: 1.6;
+/* ICON */
+.mission-card i {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #38bdf8;
+  transition: 0.4s ease;
 }
 
-/* =========================
-   CARDS
-========================= */
-.about-cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.card {
-  background-color: rgba(255, 255, 255, 0.95);
-  width: 280px;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.card h3 {
-  color: #464be8;
+/* TITLE */
+.mission-card h3 {
   margin-bottom: 10px;
+  font-size: 22px;
 }
 
-.card p {
-  color: #333;
-  font-size: 14px;
-  line-height: 1.5;
+/* HOVER EFFECT */
+.mission-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  background: rgba(56, 189, 248, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(56, 189, 248, 0.4);
 }
 
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 768px) {
-
-  .navbar {
-    height: 70px;
-  }
-
-  .navbar ul {
-    gap: 20px;
-    font-size: 16px;
-  }
-
-  .page-title {
-    top: 85px;
-    font-size: 22px;
-    padding: 12px 25px;
-  }
-
-  .about-academy {
-    padding: 120px 15px 50px;
-  }
-
-  .about-intro {
-    font-size: 14px;
-  }
-}
-   .logo {
-  position: static;                 /* remove absolute positioning */
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
+/* ICON ANIMATION ON HOVER */
+.mission-card:hover i {
+  transform: rotate(10deg) scale(1.2);
+  color: #22c55e;
 }
 
- 
-.logo img {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
-}
-.navbar-spacer {
-  width: 80px;   /* roughly match logo width */
-  flex-shrink: 0;
+/* TOP GLOW EFFECT */
+.mission-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(56,189,248,0.15), transparent 60%);
+  transform: scale(0);
+  transition: 0.5s ease;
 }
 
- @media (max-width: 768px) {
-  section {
-    scroll-margin-top: 110px;
-  }
-  .navbar {
-    height: 70px;
-    padding: 0 10px;
-  }
-  .logo img {
-    height: 50px;
-  }
-  .navbar ul {
-    gap: 25px;
-    font-size: 16px;
-  }
-  .navbar-spacer {
-    width: 50px;
-  }
-}
-@media (max-width: 480px) {
-  .navbar ul {
-    gap:18px;
-    font-size: 14px;
-  }
-
-  .logo img {
-    height: 40px;
-  }
-
-  .navbar-spacer {
-    width: 40px;
-  }
+.mission-card:hover::before {
+  transform: scale(1);
 }

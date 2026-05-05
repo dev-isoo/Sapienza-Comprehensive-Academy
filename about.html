@@ -1,66 +1,234 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sapienza Comprehensive Academy</title>
-  <link rel="stylesheet" href="about.css">
-   <link rel="icon" type="image/png" href="images/logo.jpg">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Sapienza Academy</title>
+
+  <link rel="icon" href="images/logo.jpg"/>
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="about.css"/>
+
+  <style>
+    .particles-bg{
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      z-index:-1;
+    }
+  </style>
 </head>
-<body>
-     <nav class="navbar">
-  <div class="logo">
-    <img src="images/logo.jpg" alt="Logo">
+
+<body class="dark-mode">
+
+<canvas class="particles-bg" id="particlesBg"></canvas>
+
+<!-- THEME TOGGLE -->
+<button class="theme-toggle" id="themeToggle">
+  <i class="fa-solid fa-sun" id="themeIcon"></i>
+</button>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.jpg"/>
+      <span>Sapienza</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+
   </div>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="navbar-spacer"></div>
 </nav>
 
-  <!-- BLUR BACKGROUND -->
-  <div class="blur-bg"></div>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
 
-  <!-- PAGE TITLE -->
-  <h1 class="page-title">Sapienza Comprehensive Academy</h1>
+<!-- HERO -->
+<section class="about-hero">
+  <h1>About <span>Sapienza</span></h1>
+  <p>Excellence. Discipline. Future Leaders.</p>
+</section>
 
-  <!-- CONTENT -->
-  <section class="about-academy">
+<!-- ABOUT -->
+<section class="about">
+  <div class="wrap about-grid">
 
-    <p class="about-intro">
-      Sapienza Comprehensive Academy is a modern learning institution dedicated
-      to academic excellence, discipline, and character development.
-    </p>
+    <div class="about-text">
+      <h2>Who We Are</h2>
+      <p>
+        Sapienza Comprehensive Academy is committed to building intelligent,
+        confident, and disciplined students prepared for the future.
+      </p>
 
-    <div class="about-cards">
-      <div class="card">
-        <h3>🎯 Our Mission</h3>
-        <p>
-          To provide quality education that builds strong academic foundations,
-          critical thinking, and confidence in every student.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🌍 Our Vision</h3>
-        <p>
-          To become a leading comprehensive academy recognized for excellence,
-          innovation, and moral values.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>📚 What We Offer</h3>
-        <p>
-          Well-structured subjects, experienced teachers, and a supportive
-          learning environment that helps students succeed.
-        </p>
+      <div class="about-stats">
+        <div><h3>500+</h3><span>Students</span></div>
+        <div><h3>30+</h3><span>Teachers</span></div>
+        <div><h3>10+</h3><span>Years</span></div>
       </div>
     </div>
 
-  </section>
+    <div class="about-img">
+      <img src="images/logo.jpg"/>
+    </div>
+
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="wrap mission-grid">
+
+    <div class="mission-card">
+      <i class="fa-solid fa-bullseye"></i>
+      <h3>Mission</h3>
+      <p>To provide quality education and build future leaders.</p>
+    </div>
+
+    <div class="mission-card">
+      <i class="fa-solid fa-eye"></i>
+      <h3>Vision</h3>
+      <p>To be a top global institution for excellence.</p>
+    </div>
+
+    <div class="mission-card">
+      <i class="fa-solid fa-star"></i>
+      <h3>Values</h3>
+      <p>Discipline, Excellence, Creativity.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div>
+      <img src="images/logo.jpg" style="width:50px"/>
+      <h3>Sapienza</h3>
+      <p>Excellence in education since 2014.</p>
+    </div>
+
+    <div>
+      <h4>Links</h4>
+      <a href="index.html">Home</a><br/>
+      <a href="about.html">About</a><br/>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>📞 +234 806 0063 122</p>
+      <p>📍 Lagos</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+/* THEME TOGGLE */
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+
+let darkMode = document.body.classList.contains('dark-mode');
+
+const savedTheme = localStorage.getItem('sapienza-theme');
+
+if (savedTheme === 'light') {
+  document.body.classList.remove('dark-mode');
+  document.body.classList.add('light-mode');
+  darkMode = false;
+  themeIcon.className = 'fa-solid fa-moon';
+}
+
+themeToggle.addEventListener('click', () => {
+  darkMode = !darkMode;
+
+  document.body.classList.toggle('dark-mode', darkMode);
+  document.body.classList.toggle('light-mode', !darkMode);
+
+  themeIcon.className = darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+
+  localStorage.setItem('sapienza-theme', darkMode ? 'dark' : 'light');
+});
+
+/* MOBILE MENU */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+
+/* PARTICLES */
+const canvas = document.getElementById('particlesBg');
+
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+
+  let W = canvas.width = window.innerWidth;
+  let H = canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  });
+
+  const particles = Array.from({ length: 70 }, () => ({
+    x: Math.random() * W,
+    y: Math.random() * H,
+    vx: (Math.random() - 0.5) * 0.6,
+    vy: (Math.random() - 0.5) * 0.6,
+    size: Math.random() * 2 + 1
+  }));
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255,255,255,0.5)";
+      ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+</script>
 
 </body>
 </html>
