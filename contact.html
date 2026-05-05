@@ -107,28 +107,33 @@
 </section>
 
 <!-- EMAILJS -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  emailjs.init("YOUR_PUBLIC_KEY");
+  emailjs.init("mRBKrsFIZ4o2eTbZL");
 
   const form = document.getElementById("contactForm");
+
+  if (!form) return;
 
   form.addEventListener("submit", function(e){
     e.preventDefault();
 
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    emailjs.send("service_z7csu9o", "template_er663ur", {
       from_name: document.getElementById("name").value,
       from_email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value || "Not provided",
+      program: document.getElementById("program").value || "Not specified",
       message: document.getElementById("message").value
     })
     .then(() => {
       alert("Application sent successfully!");
       form.reset();
     })
-    .catch(() => {
+    .catch((error) => {
+      console.log(error);
       alert("Failed to send. Try again.");
     });
   });

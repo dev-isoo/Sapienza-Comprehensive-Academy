@@ -2,11 +2,7 @@
    SAPIENZA ACADEMY — shared.css
 ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
-  @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-}
+  
 :root {
   --primary:    #464be8;
   --primary-dk: #3238c8;
