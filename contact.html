@@ -39,7 +39,6 @@
       <li><a class="active" href="contact.html">Contact</a></li>
     </ul>
 
-    <!-- THEME BUTTON -->
     <button class="theme-toggle" id="themeToggle">
       <i class="fa-solid fa-sun" id="themeIcon"></i>
     </button>
@@ -101,44 +100,63 @@
     <input type="email" id="email" placeholder="Email Address" required />
     <textarea id="message" placeholder="Your Message / Application" required></textarea>
 
-    <button type="submit">Send Application</button>
+    <button type="submit" id="submitBtn">Send Application</button>
+
+    <!-- ✅ STATUS MESSAGE -->
+    <p id="formStatus" style="margin-top:10px; font-size:14px;"></p>
 
   </form>
 
 </section>
 
-<!-- EMAILJS --> 
- <script>
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
 document.addEventListener("DOMContentLoaded", () => {
 
   emailjs.init("mRBKrsFIZ4o2eTbZL");
 
   const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+  const button = document.getElementById("submitBtn");
 
   if (!form) return;
 
   form.addEventListener("submit", function(e){
     e.preventDefault();
 
+    // 🔄 show sending state
+    button.disabled = true;
+    button.textContent = "Sending...";
+    status.textContent = "";
+    
     emailjs.send("service_z7csu9o", "template_er663ur", {
       from_name: document.getElementById("name").value,
       from_email: document.getElementById("email").value,
       message: document.getElementById("message").value
     })
     .then(() => {
-      alert("Application sent successfully!");
+      status.textContent = "✅ Application sent successfully!";
+      status.style.color = "green";
       form.reset();
     })
     .catch((error) => {
       console.log(error);
-      alert("Failed to send. Try again.");
+      status.textContent = "❌ Failed to send. Try again.";
+      status.style.color = "red";
+    })
+    .finally(() => {
+      // 🔁 restore button
+      button.disabled = false;
+      button.textContent = "Send Application";
     });
   });
 
 });
 </script>
 
-<!-- GLOBAL SCRIPT (MUST BE LAST) -->
+<!-- GLOBAL SCRIPT -->
 <script src="shared.js"></script>
 
 </body>

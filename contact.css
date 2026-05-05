@@ -423,3 +423,28 @@ body.light-mode .theme-toggle:hover {
     padding: 60px 16px;
   }
 }
+
+
+
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #22c55e;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
