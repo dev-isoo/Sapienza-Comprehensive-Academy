@@ -206,7 +206,14 @@
     <div class="fi-col"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
     <div class="fi-col"><h4>Contact</h4><p>📧 sapienzaacademy5@gmail.com</p><p>📞 +234 806 0063 122</p><p>📍 Ikorodu, Lagos Nigeria</p></div>
   </div>
-  <div class="footer-bottom"><p>© 2026 Sapienza Comprehensive Academy. All rights reserved.</p></div>
+  
+  <div class="footer-bottom">
+  <p>
+    © 2026 Sapienza Comprehensive Academy. All rights reserved.
+  </p>
+
+  <developer-credit variant="footer"></developer-credit>
+</div>
 </footer>
 
 <script>
@@ -678,7 +685,10 @@ const testiObs = new IntersectionObserver(entries => {
 testiCards.forEach(el => testiObs.observe(el));
 </script>
 
-<!-- shared.js MUST be last — it owns the theme toggle -->
+
+<script src="shared.js"></script>
+
+<!-- shared.js owns the theme toggle -->
 <script src="shared.js"></script>
 
 </body>

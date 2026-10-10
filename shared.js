@@ -172,3 +172,66 @@
   }
 
 })();
+
+
+
+
+/* DEV ISOO — Reusable Website Credit */
+class DeveloperCredit extends HTMLElement {
+  connectedCallback() {
+    const link = document.createElement("a");
+
+    link.href = "https://dev-isoo-portfolio.onrender.com";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.className = "dev-isoo-credit";
+    link.innerHTML = 'Built by <strong>Dev Isoo</strong> <span aria-hidden="true">↗</span>';
+    link.setAttribute("aria-label", "Built by Dev Isoo — visit portfolio");
+
+    const style = document.createElement("style");
+    style.textContent = `
+      developer-credit {
+        display: inline-flex;
+        flex-shrink: 0;
+      }
+
+      .dev-isoo-credit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 12px 18px;
+        border: 1px solid #d6e0ef;
+        border-radius: 999px;
+        color: #536581;
+        background: transparent;
+        font: 400 14px/1.2 Arial, sans-serif;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: border-color .2s, background .2s, transform .2s;
+      }
+
+      .dev-isoo-credit strong {
+        color: #172033;
+        font-weight: 700;
+      }
+
+      .dev-isoo-credit:hover {
+        border-color: #8b7aff;
+        background: rgba(139, 92, 246, .06);
+        transform: translateY(-2px);
+      }
+
+      .dev-isoo-credit span {
+        color: #536581;
+      }
+    `;
+
+    this.replaceChildren(style, link);
+  }
+}
+
+if (!customElements.get("developer-credit")) {
+  customElements.define("developer-credit", DeveloperCredit);
+}
+
